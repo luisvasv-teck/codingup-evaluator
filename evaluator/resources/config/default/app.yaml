@@ -1,0 +1,13 @@
+languages:
+  es:
+    name: spanish
+    id: 1
+  en:
+    name: english
+    id: 2
+
+file_extensions_supported:
+  - ipynb
+
+init_database:
+  create_teachers: sqls/001.teachers.sql
