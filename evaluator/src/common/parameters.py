@@ -66,8 +66,11 @@ def get_args():
 
     # teachers sub-opt : add
     add_parser = teacher_list_parser.add_parser('add', help="add new teacher")
+    
+    
+   # teachers sub-opt : disable
+    add_parser = teacher_list_parser.add_parser('disable', help="disable a teacher")
     add_parser.add_argument('--id', type=str, required=True, help="teacher identifier")
-    add_parser.add_argument('--full-name', type=str, required=True, help="teacher identifier")
 
 
     # if no option set , show help 
@@ -75,3 +78,4 @@ def get_args():
         parser.print_help()
         sys.exit()
     return parser
+

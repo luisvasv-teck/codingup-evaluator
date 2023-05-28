@@ -1,3 +1,11 @@
-database: /Users/lvasq/repositories/personal/codingup-evaluator/evaluator/resources/database/default.db
-language: en
+database: /Users/lvasq/repositories/personal/codingup-evaluator/evaluator/resources/databases/default.db
+email:
+  account: coding.up.my.future@gmail.com
+  imap_port: 993
+  imap_server: imap.gmail.com
+  password: gAAAAABkc8XypX_UcTxlYXxNZjuh4ucIzxnY7d4zs2Lrm_cIKvvsjKjEjQIhqoVDu2Y41yM3MblfLqCfxXyCUDFAI0V-sRS04Xo1wme6oU89n7QGJCysYtM=
+  smtp_port: 587
+  smtp_server: smtp.gmail.com
+hash: IEIt-K661eXSz1gug7obux1_QqiCLGEsDidpocgU10Y=
+language: es
 logotype: /Users/lvasq/repositories/personal/codingup-evaluator/evaluator/resources/logotypes/softserve

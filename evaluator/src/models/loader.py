@@ -22,6 +22,7 @@ class Loader:
         self.__args = None
         self.__profile = None
         self.__db = None
+        self.__config = None
 
 
     @property
@@ -223,3 +224,42 @@ class Loader:
                 >>> validator_dto.config = Config()
         """
         self.__db = db
+    @property
+    def config(self):
+        """
+           allows to return the value for the config instane
+            
+            parameters :
+                N/A
+            
+            outputs :
+                instance or configuration value
+            
+            usage :
+            
+                >>> from models.validator import Validator
+                >>> validator_dto = Validator()
+                >>> variable = validator_dto.config
+        """
+        return self.__config
+
+    @config.setter
+    def config(self, config):
+        """
+           allows to set the value for the config instance
+        
+            parameters :
+                N/A
+            
+            outputs :
+                instance or configuration value
+            
+            usage :
+            
+                >>> from models.validator import Validator
+                >>> from src.config.read import Config
+                >>> validator_dto = Validator()
+                
+                >>> validator_dto.config = Config()
+        """
+        self.__config = config

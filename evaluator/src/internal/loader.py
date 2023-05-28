@@ -9,6 +9,7 @@ class DataLoader:
     
     def __init__(self, args: dict):
         self.__args = args
+        self.__app = Application.read_yaml(os.path.join(__root_config__, "config", "default", "app.yaml"))
     
     def __load_profile(self) -> Struct:
         profile_config: str = Application.read_yaml(
@@ -30,6 +31,7 @@ class DataLoader:
         loader.profile = profile
         loader.utilities = Application
         loader.db = Sqlite(profile.database)
+        loader.config =  Struct(**self.__app)
         return loader
 
             

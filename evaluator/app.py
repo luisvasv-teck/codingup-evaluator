@@ -1,6 +1,7 @@
 import src.common.parameters as args
 from src.internal.init import SetUpValidator
 from src.internal.loader import DataLoader
+from src.dao.teachers import Teachers
 
 
 class App:
@@ -18,12 +19,20 @@ class App:
             # definir  seión de base de datos
             
             loader = DataLoader(parameters)
-            loader.start()
             if parameters.command == "teachers":
+                teacher =Teachers(loader.start())
                 # generar procesos para listar datos
                 # insertar
                 # inactivar
-                
+                match parameters.teachers_actios:
+                    case 'list': 
+                        teacher.select_teachers()
+                    case 'add': 
+                        teacher.add_teacher()
+                    case 'disable': 
+                        teacher.inactivate_teacher()
+                        
+                    
                 print(parameters)
         #
             # classes instance

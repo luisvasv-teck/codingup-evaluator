@@ -1,7 +1,9 @@
 import logging
+import getpass
 import yaml
 import os
 import json
+import re
 from yaml.loader import SafeLoader
 from datetime import datetime
 
@@ -204,6 +206,62 @@ class Application:
             except Exception as ex:
                 print(f"invalid value: {value}, try again.")
         return value
+    
+    @staticmethod
+    def get_text_simple(text: str, key: str):
+        value=None
+        while True:
+            try:
+                value = input(text)
+                if len(value.strip()):
+                    break
+            except Exception as ex:
+                print(f"intunt a {key}, try again.")
+        return value
+    
+    @staticmethod
+    def get_email(text: str, key: str):
+        pattern: str = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        email: str = None
+        while True:
+            try:
+                email = input(text)
+                if re.match(pattern, email):
+                    break
+            except Exception as ex:
+                print(f"intunt a valid {key}, try again.")
+        return email
+    
+    @staticmethod
+    def get_number_simple(text: str, key: str, data_type = int):
+        value=None
+        while True:
+            try:
+                value = data_type(input(text))
+                break
+            except Exception as ex:
+                print(f"intunt a {key}, try again.")
+        return value
+    
+    @staticmethod
+    def get_password(text: str, key: str, two_validations: bool = True):
+        password_1: str = None
+        while True:
+            try:
+                password_1 = getpass.getpass(text)
+                if len(password_1.strip()) > 0:
+                    if two_validations:
+                        password_2 = Application.get_password(
+                            text.replace("input", "repeat").replace("password ", "password"),
+                            "repeat-{key}", False
+                        )
+                        if password_1 == password_2:
+                            break
+                    else:
+                        break
+            except Exception as ex:
+                print(f"intunt a {key}, try again.")
+        return password_1
 
     @staticmethod
     def read_file(file_path: str) -> str:

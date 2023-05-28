@@ -6,7 +6,6 @@ from typing import Tuple, Any, Dict
 class Sqlite:
     
     def __init__(self, database: str):
-        print(database)
         self.__conn = sqlite3.connect(database)
         self.__cursor = self.__conn.cursor()
         self.__cursor.execute("PRAGMA foreign_keys = ON")
@@ -23,7 +22,7 @@ class Sqlite:
         self.__cursor.execute(sql)
         return self.__cursor.fetchall()
     
-    def select_dataframe(self, sql: str):
+    def select_dataframe(self, sql: str) -> pd.DataFrame:
         return pd.read_sql_query(sql, self.__conn)
         
     def execute_single(self, sql: str, parameters: Tuple[Any, Any]):

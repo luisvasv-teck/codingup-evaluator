@@ -1,4 +1,4 @@
-CREATE TABLE teachers (
+CREATE TABLE IF NOT EXISTS teachers (
     id_teacher  TEXT NOT NULL,
     full_name   TEXT NOT NULL,
     email       TEXT NOT NULL,
