@@ -1,0 +1,26 @@
+languages:
+  es:
+    name: spanish
+    id: 1
+  en:
+    name: english
+    id: 2
+
+file_extensions_supported:
+  - ipynb
+
+init:
+  db:
+    teachers: sqls/001.teachers.sql
+
+sql:
+  teachers:
+    select:  |
+      SELECT id_teacher ID, full_name NAME, email EMAIL 
+      FROM teachers 
+      WHERE active = '{active}'
+    insert: INSERT INTO teachers VALUES (? , ?, ?, ?)
+    update: |
+      UPDATE teachers
+      SET active = '{active}'
+      WHERE id_teacher = '{id}'
