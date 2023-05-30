@@ -21,8 +21,9 @@ def exist_file(value: str):
 
 def get_args():
 
-    if Application.is_empty_folder(os.path.join(__root_config__, 'config', 'profiles')):
-        raise Exception("You must configure the app before using it, please run:\npython evaluator/app.py --init\n")
+    # TODO: ajustar para realizar init
+    #if Application.is_empty_folder(os.path.join(__root_config__, 'config', 'profiles')):
+    #    raise Exception("You must configure the app before using it, please run:\npython evaluator/app.py --init\n")
     
     common_parser = argparse.ArgumentParser(add_help=False)
     common_parser.add_argument('--profile-name', type=is_valid_text, default="default", required=False, help="user profile name")
